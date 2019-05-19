@@ -28,9 +28,9 @@ class OfferList extends Component {
           const offersToRender = data.offers
 
           return (
-            <div>
+            <ul>
               {offersToRender.map(offer => <Offer key={offer.id} offer={offer} />)}
-            </div>
+            </ul>
           )
         }}
       </Query>

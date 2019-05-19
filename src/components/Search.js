@@ -3,6 +3,20 @@ import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import Offer from './Offer'
 
+const OFFER_SEARCH_QUERY = gql`
+  query($filter: String){
+    offers
+    	(filter: {nameContains: $filter})
+    {
+      id
+      imageUrl
+      name
+      description
+      terms
+    }
+  }
+`
+
 class Search extends Component {
 
   state = {
@@ -21,7 +35,7 @@ class Search extends Component {
           />
           <button onClick={() => this._executeSearch()}>OK</button>
         </div>
-        {this.state.links.map((offer, index) => (
+        {this.state.offers.map((offer, index) => (
           <Offer key={offer.id} offer={offer} index={index} />
         ))}
       </div>
@@ -29,7 +43,14 @@ class Search extends Component {
   }
 
   _executeSearch = async () => {
-    // ... you'll implement this 🔜
+    const { filter } = this.state
+    const result = await this.props.client.query({
+      query: OFFER_SEARCH_QUERY,
+      variables: { filter },
+    })
+    const offers = result.data.offers
+    this.setState({ offers })
+    console.log(offers);
   }
 }
 

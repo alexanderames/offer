@@ -5,9 +5,11 @@ class Offer extends Component {
     return (
       <div>
         <div>
-          {this.props.offer.name} ({this.props.offer.imageUrl})
-          {this.props.offer.description}
-          <i>{this.props.offer.terms}</i>
+          {this.props.offer.name} | ({this.props.offer.imageUrl})
+          <ul>
+            <li>{this.props.offer.description}</li>
+            <li><i>{this.props.offer.terms}</i></li>
+          </ul>
         </div>
       </div>
     )
