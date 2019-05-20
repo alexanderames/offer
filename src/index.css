@@ -12,8 +12,8 @@ input {
   color: #828282;
 }
 
-.orange {
-  background-color: #ff6600;
+.blue {
+  background-color: #61dafb;
 }
 
 .background-gray {
@@ -26,6 +26,12 @@ input {
 
 .w85 {
   width: 85%;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button {

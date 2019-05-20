@@ -12,8 +12,8 @@ class App extends Component {
       <Header />
       <div className="ph3 pv1 background-gray">
       <Switch>
-      <Route exact path='/' component={OfferList} />
       <Route exact path='/search' component={Search} />
+      <Route exact path='/' component={OfferList} />
       </Switch>
       </div>
       <OfferList />
